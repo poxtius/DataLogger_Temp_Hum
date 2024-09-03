@@ -1,0 +1,10 @@
+var sheet_id = "ID del fichero GoogleShet que vas a utilizar";
+var sheet_name = "ESP_Temp_Hum_DataLogger";
+function doGet(e){
+var ss = SpreadsheetApp.openById(sheet_id);
+var sheet = ss.getSheetByName(sheet_name);
+var temp = Number(e.parameter.temp);
+var hum = Number(e.parameter.hum);
+var  fecha = new Date();
+sheet.appendRow([fecha,temp,hum]);
+}
